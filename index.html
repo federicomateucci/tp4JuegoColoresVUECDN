@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>TP4-VUE-CDN</title>
+</head>
+
+<body>
+    <div id="app">
+
+
+        <div id="header" :style="{backgroundColor: mensajes.headerColor}">
+            <h1>The great <br>
+                <span id="colorDisplay">{{pickedColor}}</span>
+                <br>
+                Guessing Game
+            </h1>
+
+
+
+        </div>
+        <div id="navigator">
+            <button id="reset" @click="resetColors()">{{mensajes.restartButton}}</button>
+            <span id="message">{{mensajes.messageDisplay}}</span>
+
+            <button id="easy" @click="easy()" :class="{'selected': !isHard}">easy</button>
+            <button id="hard" @click="hard()" :class="{'selected': isHard}">hard</button>
+        </div>
+
+
+        <div id="container">
+            <square :mensajes="mensajes" :square="square" :set-all-colors-to="setAllColorsTo"
+                :picked-color="pickedColor" v-for="(square,index) in squares" class="square" :key="index"></square>
+        </div>
+
+    </div>
+
+
+
+
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+
+</html>
